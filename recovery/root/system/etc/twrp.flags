@@ -7,36 +7,42 @@
 /system_a           ext4       /dev/block/mapper/system_a                                 flags=backup=1;flashimg=1;slotselect;display="System Image A"
 /vendor_a           ext4       /dev/block/mapper/vendor_a                                 flags=backup=1;flashimg=1;slotselect;display="Vendor Image A"
 /product_a          ext4       /dev/block/mapper/product_a                                flags=backup=1;flashimg=1;slotselect;display="Product Image A"
+/system_b           ext4       /dev/block/mapper/system_b                                 flags=backup=1;flashimg=1;slotselect;display="System Image B"
+/vendor_b           ext4       /dev/block/mapper/vendor_b                                 flags=backup=1;flashimg=1;slotselect;display="Vendor Image B"
+/product_b          ext4       /dev/block/mapper/product_b                                flags=backup=1;flashimg=1;slotselect;display="Product Image B"
 
 # Common partition
-/boot             emmc    /dev/block/by-name/boot                     flags=backup=1;display="Boot";flashimg=1
-/vendor_boot      emmc    /dev/block/by-name/vendor_boot              flags=display="Vendor Boot";flashimg=1;backup=1;slotselect
-/cache            ext4    /dev/block/by-name/cache                    flags=backup=1;display="Cache";wipeingui;wipeduringfactoryreset
-/dtbo             emmc    /dev/block/by-name/dtbo                     flags=backup=1;display="Dtbo"
-/persist          ext4    /dev/block/by-name/persist                  flags=display="Persist";backup=1
-/persistent       emmc    /dev/block/by-name/frp                      flags=display="Persistent";backup=1
-/metadata         ext4    /dev/block/by-name/md_udc                   flags=display="Metadata"
-/data             etx4    /dev/block/by-name/userdata                 flags=fileencryption=aes-256-xts:aes-256-cts,keydirectory=/metadata/vold/metadata_encryption
+/Super             emmc    /dev/block/platform/bootdevice/by-name/super                     flags=backup=1;display="Super";flashimg=1
+/boot_a             emmc    /dev/block/platform/bootdevice/by-name/boot_a                     flags=backup=1;display="Boot A";flashimg=1
+/vendor_boot_a      emmc    /dev/block/platform/bootdevice/by-name/vendor_boot_a              flags=display="Vendor Boot A";flashimg=1;backup=1;slotselect
+/boot_b             emmc    /dev/block/platform/bootdevice/by-name/boot_b                     flags=backup=1;display="Boot B";flashimg=1
+/vendor_boot_b      emmc    /dev/block/platform/bootdevice/by-name/vendor_boot_b              flags=display="Vendor Boot B";flashimg=1;backup=1;slotselect
+/cache            ext4    /dev/block/platform/bootdevice/by-name/cache                    flags=backup=1;display="Cache";wipeingui;wipeduringfactoryreset
+/dtbo             emmc    /dev/block/platform/bootdevice/by-name/dtbo                     flags=backup=1;display="Dtbo"
+/persist          ext4    /dev/block/platform/bootdevice/by-name/persist                  flags=display="Persist";backup=1
+/persistent       emmc    /dev/block/platform/bootdevice/by-name/frp                      flags=display="Persistent";backup=1
+/metadata         ext4    /dev/block/platform/bootdevice/by-name/md_udc                   flags=display="Metadata"
+/data             etx4    /dev/block/platform/bootdevice/by-name/userdata                 flags=fileencryption=aes-256-xts:aes-256-cts,keydirectory=/metadata/vold/metadata_encryption
 # Standard MediaTek's Partitions
-/proinfo          emmc    /dev/block/by-name/proinfo
-/para             emmc    /dev/block/by-name/para
-/logo             emmc    /dev/block/by-name/logo                     flags=display="Logo";backup=1
-/expdb            emmc    /dev/block/by-name/expdb
-/seccfg           emmc    /dev/block/by-name/seccfg
-/spmfw            emmc    /dev/block/by-name/spmfw
-/otp              emmc    /dev/block/by-name/otp
+/proinfo          emmc    /dev/block/platform/bootdevice/by-name/proinfo
+/para             emmc    /dev/block/platform/bootdevice/by-name/para
+/logo             emmc    /dev/block/platform/bootdevice/by-name/logo                     flags=display="Logo";backup=1
+/expdb            emmc    /dev/block/platform/bootdevice/by-name/expdb
+/seccfg           emmc    /dev/block/platform/bootdevice/by-name/seccfg
+/spmfw            emmc    /dev/block/platform/bootdevice/by-name/spmfw
+/otp              emmc    /dev/block/platform/bootdevice/by-name/otp
 
 # Vbmeta related partitions.
-/vbmeta           emmc    /dev/block/by-name/vbmeta                   flags=display="Vbmeta";flashimg=1;backup=1
-/vbmeta_system    emmc    /dev/block/by-name/vbmeta_system            flags=display="Vbmeta_system";backup=1
-/vbmeta_vendor    emmc    /dev/block/by-name/vbmeta_vendor            flags=display="Vbmeta_vendor";backup=1
+/vbmeta           emmc    /dev/block/platform/bootdevice/by-name/vbmeta                   flags=display="Vbmeta";flashimg=1;backup=1
+/vbmeta_system    emmc    /dev/block/platform/bootdevice/by-name/vbmeta_system            flags=display="Vbmeta_system";backup=1
+/vbmeta_vendor    emmc    /dev/block/platform/bootdevice/by-name/vbmeta_vendor            flags=display="Vbmeta_vendor";backup=1
 
 # IMEI and modem related
-/protect_f        ext4    /dev/block/by-name/protect1                 flags=display="Protect_f";backup=1;
-/protect_s        ext4    /dev/block/by-name/protect2                 flags=display="Protect_s";backup=1;
-/nvram            emmc    /dev/block/by-name/nvram                    flags=display="NvRam";backup=1;
-/nvdata           ext4    /dev/block/by-name/nvdata                   flags=display="NvData";backup=1
-/nvcfg            ext4    /dev/block/by-name/nvcfg                    flags=display="NvCfg";backup=1
+/protect_f        ext4    /dev/block/platform/bootdevice/by-name/protect1                 flags=display="Protect_f";backup=1;
+/protect_s        ext4    /dev/block/platform/bootdevice/by-name/protect2                 flags=display="Protect_s";backup=1;
+/nvram            emmc    /dev/block/platform/bootdevice/by-name/nvram                    flags=display="NvRam";backup=1;
+/nvdata           ext4    /dev/block/platform/bootdevice/by-name/nvdata                   flags=display="NvData";backup=1
+/nvcfg            ext4    /dev/block/platform/bootdevice/by-name/nvcfg                    flags=display="NvCfg";backup=1
 
 # Removable storage
 /usb_otg          atuo    /dev/block/sdd1  /dev/block/sdd            flags=display="USB-Storage";storage;wipeingui;removable;fsflags="utf8"
