@@ -1,6 +1,7 @@
 /system                   ext4     system                                                   flags=display=system;logical;slotselect
 /vendor                   ext4     vendor                                                   flags=display=vendor;logical;slotselect
 /product                  ext4     product                                                  flags=display=product;logical;slotselect
+/super                    emmc    /dev/block/platform/bootdevice/by-name/super              flags=display=super
 /metadata                 ext4     /dev/block/platform/bootdevice/by-name/md_udc            flags=display=metadata
 /data                     ext4     /dev/block/platform/bootdevice/by-name/userdata          flags=display=data
 /protect_f                ext4     /dev/block/platform/bootdevice/by-name/protect1          flags=display=protect_f
